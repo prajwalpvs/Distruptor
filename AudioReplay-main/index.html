@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disruptor</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="card">
+        <div class="emoji-wrap">
+            <div class="pulse-ring" id="pulseRing"></div>
+            <div class="emoji">🤫</div>
+        </div>
+
+        <p class="title">Disruptor</p>
+
+        <p class="description">
+            Plays your mic audio back through your speakers with a <b>delay</b> —
+            making it nearly impossible for someone to keep talking.
+        </p>
+
+        <div class="status-badge" id="statusBadge" role="status">
+            <div class="dot" aria-hidden="true"></div>
+            <span id="statusText" aria-live="polite">idle</span>
+        </div>
+
+        <div class="controls">
+            <div class="slider-label">
+                <span>Delay</span>
+                <span id="delayVal">2.0s</span>
+            </div>
+            <input type="range" id="delaySlider" min="0.5" max="5" step="0.1" value="2" />
+
+            <div class="slider-label">
+                <span>Volume</span>
+                <span id="volVal">80%</span>
+            </div>
+            <input type="range" id="volSlider" min="0" max="100" step="5" value="80" />
+        </div>
+
+        <div class="visualizer-wrap" id="vizWrap">
+            <canvas id="waveform"></canvas>
+        </div>
+
+        <div class="btn-row">
+            <button id="startBtn" aria-pressed="false">Activate</button>
+            <button id="stopBtn" aria-label="Stop audio delay">Stop</button>
+        </div>
+
+        <div class="kbd-hint">
+            press <kbd>Space</kbd> to toggle
+        </div>
+
+        <div class="how-it-works">
+            <div class="how-title">How it works</div>
+            <div class="steps">
+                <div class="step"><span class="step-num">1</span><span>Your mic captures ambient audio in real time.</span></div>
+                <div class="step"><span class="step-num">2</span><span>Audio is delayed by the amount you set above.</span></div>
+                <div class="step"><span class="step-num">3</span><span>The delayed playback disrupts the speaker's concentration — they hear themselves slightly after speaking, making it hard to continue.</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">requires microphone permission</div>
+    <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
