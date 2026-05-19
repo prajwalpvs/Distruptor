@@ -37,20 +37,22 @@
 
         <div class="controls">
             <div class="slider-label">
-                <span>Delay</span>
+                <label for="delaySlider">Delay</label>
                 <span id="delayVal">2.0s</span>
             </div>
-            <input type="range" id="delaySlider" min="0.5" max="5" step="0.1" value="2" />
+            <input type="range" id="delaySlider" min="0.5" max="5" step="0.1" value="2"
+                   aria-valuetext="2.0 seconds" />
 
             <div class="slider-label">
-                <span>Volume</span>
+                <label for="volSlider">Volume</label>
                 <span id="volVal">80%</span>
             </div>
-            <input type="range" id="volSlider" min="0" max="100" step="5" value="80" />
+            <input type="range" id="volSlider" min="0" max="100" step="5" value="80"
+                   aria-valuetext="80 percent" />
         </div>
 
         <div class="visualizer-wrap" id="vizWrap">
-            <canvas id="waveform"></canvas>
+            <canvas id="waveform" aria-hidden="true"></canvas>
         </div>
 
         <div class="btn-row">
